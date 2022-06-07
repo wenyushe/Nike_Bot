@@ -1,4 +1,4 @@
-# Wenyu She
+# SNKRS Bot created by: Wenyu She
 
 # Use Task Scheduler app to auto run this command through a batch file at 10am est:
 # C:\Users\mail4\AppData\Local\Programs\Python\Python39\python.exe "C:\Users\mail4\PycharmProjects\SNKRS_bot\main1.py" pause
@@ -6,21 +6,21 @@
 import time
 from datetime import datetime
 import webbrowser
-from general_methods import login_SNKRS, SNKRS_notify
-from general_methods import new_tab, find_tab, reload_page, next_tab, new_window, switch_window, close_tab, place_holder
-from general_methods import find_and_click, find_image, wifi_on, captcha
+from Nike_Bot.general_methods import login_SNKRS, SNKRS_notify
+from Nike_Bot.general_methods import new_tab, find_tab, reload_page, next_tab, new_window, switch_window, close_tab, place_holder
+from Nike_Bot.general_methods import find_and_click, find_image, wifi_on, captcha
 import pyautogui
 import screen_brightness_control as sbc
 
 
 # replace settings:
-buy = r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_buy.png"
-draw = r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_draw.png"
+buy = r"SNKRS_imgs\size_imgs\SNKRS_buy.png"
+draw = r"SNKRS_imgs\SNKRS_draw.png"
 
 
 profiles = 2
 SNKRS_size = ["M 9", "M 8.5"]
-SNKRS_size_image = [r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_M9.png", r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_M8.5.png"]
+SNKRS_size_image = [r"SNKRS_imgs\SNKRS_M9.png", r"SNKRS_imgs\SNKRS_M8.5.png"]
 back_to = "SNKRS2"
 
 
@@ -55,7 +55,7 @@ def run_SNKRS():
                 if datetime.now().minute >= 9:
                     break
                 # choosing the profile to run:
-                pyautogui.click(find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\chrome.png", .95))
+                pyautogui.click(find_image(r"chrome.png", .95))
                 time.sleep(2)
                 pyautogui.click(550 + (run_num % 4)*300, 450 + (int(run_num / 4))*300)
                 time.sleep(2)
@@ -77,16 +77,16 @@ def run_SNKRS():
                             if find_image(draw, .9) != None:
                                 pyautogui.click(find_image(draw, .9))
                                 time.sleep(4)
-                                if find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_draw_info.png", .9) != None:
-                                    pyautogui.click(find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_draw_info.png", .9))
+                                if find_image(r"SNKRS_imgs\SNKRS_draw_info.png", .9) != None:
+                                    pyautogui.click(find_image(r"SNKRS_imgs\SNKRS_draw_info.png", .9))
                                     scrolls = 0
-                                    while find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_draw_ok.png", .95) == None:
+                                    while find_image(r"SNKRS_imgs\SNKRS_draw_ok.png", .95) == None:
                                         pyautogui.scroll(-500)
                                         scrolls += 1
                                         if scrolls == 4:
                                             run1 = False
                                             break
-                                    pyautogui.click(find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_draw_ok.png", .95))
+                                    pyautogui.click(find_image(r"SNKRS_imgs\SNKRS_draw_ok.png", .95))
                                     time.sleep(1)
                                     pyautogui.click(find_image(draw, .9))
                                 break
@@ -97,16 +97,16 @@ def run_SNKRS():
                                 pyautogui.scroll(-400)
                                 time.sleep(0.2)
                         if run1:
-                            click = find_and_click(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_security_code.png", .9, 6)
+                            click = find_and_click(r"SNKRS_imgs\SNKRS_security_code.png", .9, 6)
                             if click:
                                 # Enter CVV:
                                 pyautogui.write("   ")
-                                pyautogui.click(find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_save_payment.png", .9))
-                            while find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_submit_order.png", .9) == None:
+                                pyautogui.click(find_image(r"SNKRS_imgs\SNKRS_save_payment.png", .9))
+                            while find_image(r"SNKRS_imgs\SNKRS_submit_order.png", .9) == None:
                                 pyautogui.scroll(-300)
-                            pyautogui.click(find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_submit_order.png", .9))
-                            if find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_draw_confirm.png", .95) != None:
-                                pyautogui.click(find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\SNKRS\SNKRS_draw_confirm.png", .95))
+                            pyautogui.click(find_image(r"SNKRS_imgs\SNKRS_submit_order.png", .9))
+                            if find_image(r"SNKRS_imgs\SNKRS_draw_confirm.png", .95) != None:
+                                pyautogui.click(find_image(r"SNKRS_imgs\SNKRS_draw_confirm.png", .95))
                     time.sleep(5)
                     next_tab()
             break
@@ -117,7 +117,7 @@ def main():
     wifi = wifi_on(0)
     if wifi:
         for i in range(profiles):
-            pyautogui.click(find_image(r"C:\Users\mail4\PycharmProjects\SNKRS_bot\chrome.png", .9))
+            pyautogui.click(find_image(r"chrome.png", .9))
             time.sleep(2)
             pyautogui.click(550 + (i % 4)*300, 450 + (int(i / 4))*300)
             open_links()

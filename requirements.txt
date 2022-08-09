@@ -1,0 +1,5 @@
+pyautogui
+time
+datetime
+webbrowser
+screen_brightness_control
